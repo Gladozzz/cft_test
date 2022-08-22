@@ -12,7 +12,7 @@ with yyyy as (
 select
      dwp.y,dwp.m,dwp.d
      ,dwp.p_id,dwp.name
-     ,to_number(to_char(min(j.dtime),'sssss'))/60 - 9*60 "минуты опоздания"
+     ,to_number(to_char(min(j.dtime),'sssss'))/60 - 9*60 "РјРёРЅСѓС‚С‹ РѕРїРѕР·РґР°РЅРёСЏ"
 from dd_with_persons dwp left outer join journal j on trunc(j.dtime,'dd') = dwp.full and dwp.p_id = j.person
 where j.type = '0'
 group by dwp.p_id,dwp.name,dwp.y,dwp.m,dwp.d
@@ -21,7 +21,7 @@ union
 select
      dwp.y,dwp.m,dwp.d
      ,dwp.p_id,dwp.name
-     ,-1 "минуты опоздания" --отсутствовал
+     ,-1 "РјРёРЅСѓС‚С‹ РѕРїРѕР·РґР°РЅРёСЏ" --РѕС‚СЃСѓС‚СЃС‚РІРѕРІР°Р»
 from dd_with_persons dwp
 where not exists(
           select * from journal j
