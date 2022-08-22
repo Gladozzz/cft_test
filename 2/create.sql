@@ -6,44 +6,44 @@ drop table units
 create table units (id number primary key,
   name varchar2(50)
 );
-COMMENT ON TABLE units IS 'еденицы измерения';
-comment on column units.id is 'id еденицы измерения';
-comment on column units.name is 'наименование еденицы измерения';
-create table catalog1 (cid number primary key, -- id раздела
-  par_cid number null references catalog1, -- ссылка на родительский раздел
-  rname varchar2(400), -- наименование раздела
-  rdescr varchar2(4000), -- описание
-  rcdate date -- дата создания
+COMMENT ON TABLE units IS 'РµРґРµРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ';
+comment on column units.id is 'id РµРґРµРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ';
+comment on column units.name is 'РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РµРґРµРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ';
+create table catalog1 (cid number primary key, -- id СЂР°Р·РґРµР»Р°
+  par_cid number null references catalog1, -- СЃСЃС‹Р»РєР° РЅР° СЂРѕРґРёС‚РµР»СЊСЃРєРёР№ СЂР°Р·РґРµР»
+  rname varchar2(400), -- РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СЂР°Р·РґРµР»Р°
+  rdescr varchar2(4000), -- РѕРїРёСЃР°РЅРёРµ
+  rcdate date -- РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ
 );
-COMMENT ON TABLE catalog1 IS 'разделы каталога';
-comment on column catalog1.cid is 'id раздела';
-comment on column catalog1.par_cid is 'ссылка на родительский раздел';
-comment on column catalog1.rname is 'наименование раздела';
-comment on column catalog1.rdescr is 'описание';
-comment on column catalog1.rcdate is 'дата создания';
-create table products1 (pid number primary key, -- id продукта
-  rcid number references catalog1, -- ссылка на каталог
-  pname varchar2(500), -- наименование продукта
-  pdescr varchar2(4000), -- спецификация
-  punit number references units, -- единица измерения
-  pper number references persons -- ответственный
+COMMENT ON TABLE catalog1 IS 'СЂР°Р·РґРµР»С‹ РєР°С‚Р°Р»РѕРіР°';
+comment on column catalog1.cid is 'id СЂР°Р·РґРµР»Р°';
+comment on column catalog1.par_cid is 'СЃСЃС‹Р»РєР° РЅР° СЂРѕРґРёС‚РµР»СЊСЃРєРёР№ СЂР°Р·РґРµР»';
+comment on column catalog1.rname is 'РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СЂР°Р·РґРµР»Р°';
+comment on column catalog1.rdescr is 'РѕРїРёСЃР°РЅРёРµ';
+comment on column catalog1.rcdate is 'РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ';
+create table products1 (pid number primary key, -- id РїСЂРѕРґСѓРєС‚Р°
+  rcid number references catalog1, -- СЃСЃС‹Р»РєР° РЅР° РєР°С‚Р°Р»РѕРі
+  pname varchar2(500), -- РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°
+  pdescr varchar2(4000), -- СЃРїРµС†РёС„РёРєР°С†РёСЏ
+  punit number references units, -- РµРґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ
+  pper number references persons -- РѕС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№
 );
-COMMENT ON TABLE products1 IS 'каталог товаров';
-comment on column products1.pid is 'id продукта';
-comment on column products1.rcid is 'ссылка на каталог';
-comment on column products1.pname is 'наименование продукта';
-comment on column products1.pdescr is 'спецификация';
-comment on column products1.punit is 'единица измерения';
-comment on column products1.pper is 'ответственный';
-create table records1 (rpid number references products1, -- продукт
-  rdate date, -- дата операции
-  incoming varchar2(2) default '1', -- поступление '1', расход '0'
-  quantity number, -- количество
-  rate number -- цена в рублях
+COMMENT ON TABLE products1 IS 'РєР°С‚Р°Р»РѕРі С‚РѕРІР°СЂРѕРІ';
+comment on column products1.pid is 'id РїСЂРѕРґСѓРєС‚Р°';
+comment on column products1.rcid is 'СЃСЃС‹Р»РєР° РЅР° РєР°С‚Р°Р»РѕРі';
+comment on column products1.pname is 'РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°';
+comment on column products1.pdescr is 'СЃРїРµС†РёС„РёРєР°С†РёСЏ';
+comment on column products1.punit is 'РµРґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ';
+comment on column products1.pper is 'РѕС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№';
+create table records1 (rpid number references products1, -- РїСЂРѕРґСѓРєС‚
+  rdate date, -- РґР°С‚Р° РѕРїРµСЂР°С†РёРё
+  incoming varchar2(2) default '1', -- РїРѕСЃС‚СѓРїР»РµРЅРёРµ '1', СЂР°СЃС…РѕРґ '0'
+  quantity number, -- РєРѕР»РёС‡РµСЃС‚РІРѕ
+  rate number -- С†РµРЅР° РІ СЂСѓР±Р»СЏС…
 );
-COMMENT ON TABLE records1 IS 'записи?';
-comment on column records1.rpid is 'продукт';
-comment on column records1.rdate is 'дата операции';
-comment on column records1.incoming is 'поступление ''1'', расход ''0''';
-comment on column records1.quantity is 'количество';
-comment on column records1.rate is 'цена в рублях';
+COMMENT ON TABLE records1 IS 'Р·Р°РїРёСЃРё?';
+comment on column records1.rpid is 'РїСЂРѕРґСѓРєС‚';
+comment on column records1.rdate is 'РґР°С‚Р° РѕРїРµСЂР°С†РёРё';
+comment on column records1.incoming is 'РїРѕСЃС‚СѓРїР»РµРЅРёРµ ''1'', СЂР°СЃС…РѕРґ ''0''';
+comment on column records1.quantity is 'РєРѕР»РёС‡РµСЃС‚РІРѕ';
+comment on column records1.rate is 'С†РµРЅР° РІ СЂСѓР±Р»СЏС…';
