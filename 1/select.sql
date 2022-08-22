@@ -12,19 +12,9 @@ with yyyy as (
 select
      dwp.y,dwp.m,dwp.d
      ,dwp.p_id,dwp.name
-     ,to_number(to_char(min(j.dtime),'sssss'))/60 - 9*60 "минуты опоздания"
+     ,nvl2(min(j.dtime),to_number(to_char(min(j.dtime),'sssss'))/60 - 9*60,-1) "минуты опоздания"
 from dd_with_persons dwp left outer join journal j on trunc(j.dtime,'dd') = dwp.full and dwp.p_id = j.person
-where j.type = '0'
+where j.type is null or j.type = '0'
 group by dwp.p_id,dwp.name,dwp.y,dwp.m,dwp.d
-having to_number(to_char(min(j.dtime),'sssss'))/60/60 > 9
-union
-select
-     dwp.y,dwp.m,dwp.d
-     ,dwp.p_id,dwp.name
-     ,-1 "минуты опоздания" --отсутствовал
-from dd_with_persons dwp
-where not exists(
-          select * from journal j
-          where j.type = '0' and j.person = dwp.p_id and trunc(j.dtime,'dd')=dwp.full
-      )
+having min(j.dtime) is null or to_number(to_char(min(j.dtime),'sssss'))/60/60 > 9
 order by 1,2,3,4
