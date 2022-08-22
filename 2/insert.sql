@@ -4,25 +4,25 @@ truncate table catalog1;
 truncate table units;
 ;
 INSERT ALL
-   into units (id,name) VALUES (1,'штуки')
-   into units (id,name) VALUES (2,'килограммы')
-   into units (id,name) VALUES (3,'литры')
+   into units (id,name) VALUES (1,'С€С‚СѓРєРё')
+   into units (id,name) VALUES (2,'РєРёР»РѕРіСЂР°РјРјС‹')
+   into units (id,name) VALUES (3,'Р»РёС‚СЂС‹')
 SELECT 1 FROM DUAL
 ;
 INSERT ALL
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (1,null, 'товары на продажу', 'товары из поставок или будущих поставок, ожидающие продажи', trunc(to_date('01.01.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (2,1,'компьютерные комплектующие', 'компьютерные комплектующие(gpu,cpu,ssd,hdd...)', trunc(to_date('01.02.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (3,2,'gpu', 'видеокарты', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (4,2,'cpu', 'процессоры', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (5,2,'ssd', 'мягкотельные накопители', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (6,5,'ssd 2.5 sata', 'мягкотельные накопители 2.5 sata', trunc(to_date('01.05.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (7,5,'ssd 3.5 sata', 'мягкотельные накопители 3.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (8,5,'ssd m2', 'мягкотельные накопители m2', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (9,2,'hdd', 'твердотельные накопители', trunc(to_date('01.06.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (10,9,'hdd 2.5 sata', 'твердотельные накопители 2.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (11,9,'hdd 3.5 sata', 'твердотельные накопители 3.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (12,1,'автомобильные расходники', 'автомобильные расходники', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
-   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (13,12,'антифриз', 'антифриз', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (1,null, 'С‚РѕРІР°СЂС‹ РЅР° РїСЂРѕРґР°Р¶Сѓ', 'С‚РѕРІР°СЂС‹ РёР· РїРѕСЃС‚Р°РІРѕРє РёР»Рё Р±СѓРґСѓС‰РёС… РїРѕСЃС‚Р°РІРѕРє, РѕР¶РёРґР°СЋС‰РёРµ РїСЂРѕРґР°Р¶Рё', trunc(to_date('01.01.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (2,1,'РєРѕРјРїСЊСЋС‚РµСЂРЅС‹Рµ РєРѕРјРїР»РµРєС‚СѓСЋС‰РёРµ', 'РєРѕРјРїСЊСЋС‚РµСЂРЅС‹Рµ РєРѕРјРїР»РµРєС‚СѓСЋС‰РёРµ(gpu,cpu,ssd,hdd...)', trunc(to_date('01.02.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (3,2,'gpu', 'РІРёРґРµРѕРєР°СЂС‚С‹', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (4,2,'cpu', 'РїСЂРѕС†РµСЃСЃРѕСЂС‹', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (5,2,'ssd', 'РјВ¤РіРєРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё', trunc(to_date('01.03.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (6,5,'ssd 2.5 sata', 'РјВ¤РіРєРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё 2.5 sata', trunc(to_date('01.05.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (7,5,'ssd 3.5 sata', 'РјВ¤РіРєРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё 3.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (8,5,'ssd m2', 'РјВ¤РіРєРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё m2', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (9,2,'hdd', 'С‚РІРµСЂРґРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё', trunc(to_date('01.06.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (10,9,'hdd 2.5 sata', 'С‚РІРµСЂРґРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё 2.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (11,9,'hdd 3.5 sata', 'С‚РІРµСЂРґРѕС‚РµР»СЊРЅС‹Рµ РЅР°РєРѕРїРёС‚РµР»Рё 3.5 sata', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (12,1,'Р°РІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ СЂР°СЃС…РѕРґРЅРёРєРё', 'Р°РІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ СЂР°СЃС…РѕРґРЅРёРєРё', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
+   into catalog1 (cid,par_cid, rname, rdescr, rcdate) VALUES (13,12,'Р°РЅС‚РёС„СЂРёР·', 'Р°РЅС‚РёС„СЂРёР·', trunc(to_date('01.04.2000','dd.mm.yyyy'),'dd'))
 SELECT 1 FROM DUAL
 ;
 INSERT ALL
@@ -36,7 +36,7 @@ INSERT ALL
    into products1 (pid,rcid, pname, pdescr, punit,pper) values (8,8,'kingstone 500 gb m2','kingstone 500 gb rev 2',1,2)
    into products1 (pid,rcid, pname, pdescr, punit,pper) values (9,10,'samsung 500 gb','samsung 500 gb rev 3',1,1)
    into products1 (pid,rcid, pname, pdescr, punit,pper) values (10,11,'kingstone 500 gb','kingstone 500 gb rev 3',1,2)
-   into products1 (pid,rcid, pname, pdescr, punit,pper) values (11,13,'sintec g12','антифриз sintec g12',3,2)
+   into products1 (pid,rcid, pname, pdescr, punit,pper) values (11,13,'sintec g12','Р°РЅС‚РёС„СЂРёР· sintec g12',3,2)
 SELECT 1 FROM DUAL
 ;
 INSERT ALL
